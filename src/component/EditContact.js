@@ -1,49 +1,64 @@
-import React,{useState} from 'react';
+import React, {useState} from 'react';
 import './App.css'
 
 
-function AddContact(props) {
+function EditContact(props) {
+    const { formEditValues, setFormEditValues, contacts, setContacts, isDisabled, setIsDisabled } = props
+    const {name, mail} = formEditValues
+
+
+    // handle input
     const initialValues = {name: "", mail: ""}
-    const [formValues, setFormValues] = useState(initialValues)
-
-
-    const handleChange = (e) => {
-        const { name, value } = e.target
-        setFormValues({ ...formValues, [name]: value})
+    const handleChangeEdit = (e) => {
+        const {name, value} = e.target
+        setFormEditValues({...formEditValues, [name]: value})
     }
-    console.log(formValues)
-    const handleAdd = (e) => {
+
+
+
+    // handle submit
+    const handleEdit = (e) => {
         e.preventDefault()
-        if (formValues.name === "" || formValues.mail === "") {
+        if (formEditValues.name === "" || formEditValues.mail === "") {
             alert("Don't Empty")
             return
         }
-        props.addContact(formValues)
-        setFormValues(initialValues)
+        const updateContact = contacts.map(contact => {
+            if (contact.id === formEditValues.id) {
+                return {...contact, name: name, mail: mail}
+            }
+            return contact;
+        });
+
+        setContacts(updateContact);
+        setFormEditValues(initialValues)
+        setIsDisabled(true)
     }
 
-
     return (
-        <div className={"container-form"}>
-            <form onSubmit={handleAdd}>
-                <h3>Add Contact</h3>
+        <div className={"form-main"}>
+            <form onSubmit={handleEdit}>
+                <h3>Update Contact</h3>
                 <div className={'container-input'}>
                     <input
                         type="text"
                         placeholder="Your name.."
                         name={"name"}
-                        value={formValues.name}
-                        onChange={handleChange}
+                        value={name}
+                        onChange={handleChangeEdit}
+                        disabled={isDisabled}
                     />
+
                     <input
                         type="text"
                         placeholder="Your mail.."
-                        name={"mail"}
-                        value={formValues.mail}
-                        onChange={handleChange}
+                        name={'mail'}
+                        value={mail}
+                        onChange={handleChangeEdit}
+                        disabled={isDisabled}
                     />
 
-                    <button>Add</button>
+                    <button>Update Now</button>
                 </div>
             </form>
         </div>
@@ -51,4 +66,4 @@ function AddContact(props) {
 
 }
 
-export default AddContact;
+export default EditContact;

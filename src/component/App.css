@@ -1,38 +1,148 @@
-.App {
-  text-align: center;
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+}
+h1 {
+    margin: 30px 0;
+    font-size: 60px;
+}
+h3 {
+    margin: 20px 0;
+    font-size: 30px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+    height: 150vh;
+    background: linear-gradient(
+            rgba(255, 255, 255, 0.7),
+            rgba(255, 255, 255, 0.3)
+    ),
+    url("https://images.pexels.com/photos/114979/pexels-photo-114979.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
+    background-size: cover;
+    background-position: center;
+
+}
+ /*header */
+.header{
+    text-align: center;
+    margin-top: 0px;
+    font-size: 50px;
+}
+.header-small{
+    text-align: center;
+    font-size: 35px;
+}
+.form-main{
+    margin: 0 100px;
+    display: flex;
+    justify-content: center;
+}
+.container-form{
+    display: flex;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/*AddContact*/
+form{
+    background-color: white;
+    padding: 0px 60px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 500px;
+
+}
+.container-input{
+    display: flex;
+    flex-direction: column;
+}
+.container-input input{
+    padding: 20px;
+    margin: 5px;
+    width: 20vw;
+}
+h3{
+    color: rgb(77, 1, 77);
+    text-align: center;
+}
+.error{
+    color: red;
+    padding-left: 10px;
+    margin-block-start: 0.5em;
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+input, select {
+    width: 300px;
+    padding: 12px 20px;
+    margin: 8px 0 8px 30px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
-.App-link {
-  color: #61dafb;
+button {
+    width: 100%;
+    background-color: #0cf;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0 25px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container-search{
+    display: flex;
+    justify-content: center;
+    margin-left: 18%;
+    padding-bottom: 50px;
+}
+
+/*Contact Card*/
+.container-card{
+    display: flex;
+    justify-content: center;
+}
+.card {
+    width: 800px;
+    border-bottom: 1px solid #444242;
+    border-top: 1px solid #444242;
+    padding: 10px 0;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.card-body{
+    display: flex;
+}
+.card-feature{
+    width: 100px;
+    display: flex;
+    justify-content: space-around;
+}
+h4{
+    margin-block-start: 0px;
+}
+
+.content{
+    margin-left: 20px;
+}
+.avatar{
+    width: 50px;
+    height: 50px;
+}
+.pencil{
+    width: 35px;
+    height: 35px;
+    cursor:pointer;
+}
+.trash-bin{
+    width: 35px;
+    height: 35px;
+    cursor:pointer;
 }
